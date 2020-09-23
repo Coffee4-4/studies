@@ -460,8 +460,6 @@ printf("%d", __LINE__); // Linha 6
 printf("%d do arquivo %s", __LINE__, __FILE__); // Linha 7
 ```
 
- 
-
 - #error
 	- Interrompe a compilação
 
