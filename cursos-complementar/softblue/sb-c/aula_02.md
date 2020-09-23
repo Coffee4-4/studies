@@ -23,8 +23,10 @@ Os 4 tipos de dados básicos
 | double/short double | 10 casas decimais              | 64   |
 | long double         | 10 casas decimais              | 80   |
 
+> int == short int, caso não venha a declarar int é interpretado como short in
 
 ### Modificador signed/unsigned
+
 - Gerencia somente números positivos
 - Float e double não utilizam esta propriedade 
 
