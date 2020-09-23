@@ -1,0 +1,2 @@
+C:\Users\andre\Documents\GitHub\Studies\Softblue\Curso Linguagem C\aula\ProjectFirst\Debug\ProjectFirst.exe
+C:\Users\andre\Documents\GitHub\Studies\Softblue\Curso Linguagem C\aula\ProjectFirst\Debug\ProjectFirst.pdb
