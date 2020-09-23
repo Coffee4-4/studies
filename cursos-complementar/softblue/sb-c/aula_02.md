@@ -158,3 +158,320 @@ x = verao;
 x = outono;
 ```
 
+**Operações matemáticas**
+
+Para os exemplos apresentados, assuma:
+
+```c
+double x; // Variável "x" declarada como do tipo de dado double
+```
+
+**=** Atribui o valor da sua direita à variável a sua esquerda
+
+```c
+x = 3; 
+
+// Resultado: x armazena o valor 3
+```
+
+**+** Soma dois valores numéricos
+
+```c
+x = 3 + 5; 
+
+// Resultado: x armazena o valor 8
+```
+
+**\-** Subtrai dois valores numéricos
+
+```C
+x = 3 - 5; 
+
+// Resultado: x armazena o valor -2
+```
+
+**\*** Multiplica dois valores numéricos
+
+```c
+x = 2 * 6; 
+
+// Resultado: x armazena o valor 12
+```
+
+**/** Divide dois valores numéricos
+
+```c
+x = 18 / 3; 
+
+// Resultado: x armazena o valor 6
+```
+
+**%** Obtém o resto da divisão entre dois valores numéricos
+
+```c
+x = 19 % 3; 
+
+// Resultado: x armazena o valor 1
+```
+
+**++** Incrementa em 1 o valor da variável acoplada
+
+```C
+x = 3; 
+x++; // Resultado: x neste momento armazena o valor 4
+```
+
+**--** Decrementa em 1 o valor da variável acoplada
+
+```C
+x = 3; 
+x--; // Resultado: x neste momento armazena o valor 2
+```
+
+- É possível utilizar estes operadores em expressões e outros comandos
+
+```C
+x = 3; 
+y = 2 + x++; // Resultado: y = 5 e x = 4
+```
+
+- Diferença entre ++x e x++
+
+```C
+x = 3; 
+y = 2 + ++x; // Resultado: y = 6 e x = 4
+```
+
+Assumir x = 5 para o início de cada exemplo apresentado neste slide
+
+**+=** Soma à variável à sua esquerda o valor apresentado em sua direita
+
+```C
+x += 3; 
+
+// Resultado: x armazena o valor 8
+```
+
+**-=** Subtrai da variável à sua esquerda o valor apresentado em sua direita
+
+```C
+x -= 3; 
+
+// Resultado: x armazena o valor 2
+```
+
+***=** Multiplica a variável à sua esquerda pelo valor apresentado em sua direita
+
+```C
+x *= 3; 
+
+// Resultado: x armazena o valor 15
+```
+
+**/=** Divide à variável à sua esquerda o valor apresentado em sua direita
+
+```C
+x /= 3; 
+
+// Resultado: x armazena o valor 1.6666666666667
+```
+
+**%=**Atribui à variável da esquerda o resto de sua divisão pelo valor apresentado em sua direita
+
+```C
+x %= 3; 
+
+// Resultado: x armazena o valor 2
+```
+
+**Conversões de tipos de dados**
+
+- Operações matemáticas entre diferentes tipos de dados podem ocasionar imprecisão
+
+- Conversão automática
+
+-  Conversão implícita (cast)
+
+```C
+int x = 10;
+int y = 3; 
+int resultadoInt = x / y;
+printf("%d \n", resultadoInt); // 3
+printf("%f \n", resultadoInt); // 0.000000
+double resultadoDouble = x / y;
+printf("%f \n", resultadoDouble); // 3.000000
+double resultadoDoubleCast = (double) x / y;
+printf("%f \n", resultadoDoubleCast); // 3.333333
+```
+
+```C
+double x = 10;
+int y = 3; 
+int resultadoInt = x / y;
+printf("%d \n", resultadoInt); // 3
+printf("%f \n", resultadoInt); // 0.000000
+double resultadoDouble = x / y;
+printf("%f \n", resultadoDouble); // 3.333333
+double resultadoDoubleCast = (double) x / y;
+printf("%f \n", resultadoDoubleCast); // 3.333333
+```
+
+**Operadores bit a bit**
+
+- A linguagem C suporta algumas operações  de baixo nível, como as operações bit a bit
+
+- Representados pelos tipos int e char
+
+| **Operador** | **Operação**                 |
+| :----------: | :--------------------------- |
+|      &       | AND (“e” lógico)             |
+|      \|      | OR (“ou” lógico)             |
+|      ^       | XOR (“ou” exclusivo)         |
+|      ~       | Complemento de um            |
+|     \>>      | Deslocamento para a direita  |
+|      <<      | Deslocamento para a esquerda |
+
+```C
+int x = 6; // 0110
+int y = 3; // 0011
+int z = x & y; // 0110 AND 0011 = 0010
+printf("%d", z); // 0010 é o decimal 2
+int w = x ^ y; // 0110 XOR 0011 = 0101
+printf("%d", w); // 0101 é o decimal 5
+int q = x >> 2; // 0110 >> 2 = 0001
+printf("%d", q); // 0001 é o decimal 1
+```
+
+**Diretivas (#)**
+
+-  Instruções pré-processadas pelo compilador
+
+-  Tempo de compilação vs. Uso de variáveis
+
+- Cada uso de uma diretiva deve ser realizado  em uma linha própria
+
+```c
+#define, #undef
+
+#if, #else, #elif, #endif
+
+#ifdef, #ifndef
+
+#line, #error
+
+#include
+```
+
+**\#define, #undef**
+
+- #define
+	- Permite atrelar um valor por meio de um  identificador
+
+	
+
+	```c
+	#define PI 3.14
+	```
+
+	- Pode ser utilizado para definir uma breve função
+
+	```c
+	#define PAR_OU_IMPAR(numero) numero%2==0 ? 0 : 1 
+	```
+
+	
+
+- #undef
+	
+	- Remove a definição de uma chave
+
+```c
+#undef PI
+```
+
+**\#if, #else, #elif, #endif**
+
+- #if
+	- Analisa uma condição e  inicia o bloco afirmativo
+
+- #else
+	- Encerra o bloco anterior e inicia o negativo
+
+- #elif
+	- Encerra o bloco anterior e abre outro condicional
+
+- #endif
+	- Encerra o comando como um todo
+
+```c
+#if PI > 5
+	// Código caso afirmativo
+#endif
+
+#if PI > 5
+	// Código caso afirmativo
+#else
+	// Código caso negativo
+#endif
+
+#if PI > 5
+	// Código caso afirmativo
+#elif PI < 2
+	// Código caso afirmativo (condição elif)
+#else
+	// Código caso negativo (condição elif)
+#endif
+```
+
+**\#ifdef, #ifndef**
+
+- #ifdef
+	- Verifica se uma chave foi definida
+
+```c
+#ifdef PI
+// Código caso afirmativo
+#endif
+```
+
+- #ifndef
+	- Verifica se uma chave não foi definida
+
+```c
+#ifndef PI
+// Código caso afirmativo
+#endif
+```
+
+- Ambas permitem o uso de #else
+
+**\#line, #error**
+
+- #line
+	- Gerencia o número da linha
+	- Inicialização opcional
+
+- Identificadores `__LINE__` e `__FILE__`
+
+```c
+#line 5 // Inicia o contador de linhas
+// Linha 5
+printf("%d", __LINE__); // Linha 6
+printf("%d do arquivo %s", __LINE__, __FILE__); // Linha 7
+```
+
+ 
+
+- #error
+	- Interrompe a compilação
+
+**#include**
+
+- #include
+	- Orienta o compilador para ler outro arquivo
+	- Comando de importação de bibliotecas
+
+```c
+#include <stdio.h>
+```
+
