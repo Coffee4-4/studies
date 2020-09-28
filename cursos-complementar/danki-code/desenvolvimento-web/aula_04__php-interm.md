@@ -107,3 +107,181 @@ echo str();
 ?>
 ```
 
+## Aula 05
+
+### Utilizando include e date
+
+`index.php`
+
+```php+HTML
+<?php
+// Trabalhando com datas 
+
+
+//função interna do PHP, parametros são o formato da data e hora que queremos questão do fuso horário deve ser definido no inicio do cód.
+
+// definindo o fuso horario
+
+date_default_timezone_set('America/Sao_Paulo');
+//pega hora atual 
+$data = date('d/m/Y H:i:s');
+
+//modificar a hora e data atual, time() + acrescimo de tempo em seg
+$data = date('d/m/Y H:i:s',time()+(60*10));
+//echo $data;
+
+
+//body do html é carregado dinamicamente pelo php.
+
+$titulo = 'Meu Titulo hehe';
+
+//incluir arquivos na página 
+include('header.php');
+
+?>
+
+<h1>Meu conteudo da home.</h1>
+
+
+<?php
+
+include('footer.php')
+?>
+```
+
+ 
+
+`header.php`
+
+```php+HTML
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--  é possivel importar variaveis da index em outros arquivos que estão no include -->
+    <title><?php echo $titulo;?></title>
+</head>
+<body>
+<p>Aqui pé meu header</p>
+
+```
+
+`footer.php`
+
+```html
+<p>Aqui é meu footer</p>    
+</body>
+</html>
+```
+
+## Aula 06
+
+### Funções para strings
+
+```php+HTML
+<?php
+$conteudo = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti necessitatibus fugit modi velit quaerat minima et optio aspernatur, iure dicta autem totam tempora, ex possimus non enim nulla animi expedita.';
+
+// recortando partes de uma string
+
+echo substr($conteudo,0,20);
+
+//recortar com base em espaços
+$nome = 'André Luiz Melicio';
+// primeiro parametro local de corte, variavel, retorna um array
+$nomes = explode(' ',$nome);
+// ver o array inteiro
+print_r($nomes);
+
+
+//juntar um array com um delimitador no caso o espaço
+$nomes = implode(' ',$nomes);
+
+
+$conteudo = '<h1>André</h1>';
+
+
+echo $conteudo;
+//strip_tags limpa tags HTML e mantem o conteudo
+echo strip_tags($conteudo);
+
+echo $nomes;
+
+//htmlentities mostra o codigo html na pagina
+echo htmlentities('<div></div>');
+
+
+?>
+```
+
+## Aula 07
+
+### Switch, continue e break
+
+```php+HTML
+<?php
+$nome = 'André';
+
+
+switch($nome){
+    case 'André':
+        echo 'Minha variavel é André';
+    break;//quebra o cód nesse ponto.
+    case 'Joice':
+        echo 'Minha variavel é Joice';
+    break;
+}
+
+//Brack pode ser usado em for, while, do, switch e foreach
+
+for($i=0; $i < 10;$i++){
+    echo $i.'<hr>';
+    if($i == 5){
+    break;
+    }
+}
+
+for($i=0; $i < 10;$i++){
+    if($i == 5){
+    continue;
+    }
+    echo $i.'<hr>';
+    
+}
+
+?>
+```
+
+## Aula 08
+
+### Funções para manipular arrays
+
+```php+HTML
+<?php
+// unir um ou mais arrays
+$array1 = array("chave1"=>"valor1", "chave2"=> "valor2");
+$array2 = array("chave3"=>"valor3","chave4"=>"valor4");
+$result = array_merge($array1, $array2);
+print_r($result);
+
+
+//array intersect key serve para retorna valorescom a mesma chave em 1 ou mais arrays, retorna sempre o valor da primeira chave
+$array1 = array("chave1"=>"valor1", "chave2"=> "valor2");
+$array2 = array("chave1"=>"qualquer valor","chave4"=>"valor4");
+
+print_r(array_intersect_key($array1,$array2));
+
+
+$arr = ['<p>andre</p>','<h1>joice</h1>','mariazinha'];
+
+// primeiro parametro nome da função, segundo parametro o array
+//array map serve para aplicar uma funcao em todos os valores do array
+print_r(array_map('strip_tags',$arr));
+
+?>
+```
+
+## Aula 09
+
+### Formulários, GET e POST
