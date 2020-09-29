@@ -150,4 +150,206 @@ class Exemplo{
 
 ## Aula 03
 
-### **Final class, heranças, protected**
+### Final class, heranças, protected
+
+> Final class é uma classe final e não pode ser herdada 
+>
+> public function é acessada em todo o script 
+>
+> private function esta apenas disponível dentro da classe que foi declarada e não pode ser herdada 
+>
+> protected function garante que seus métodos e propriedades não possam ser acessados externamente mas é possível herdar em class filhas. 
+
+```php
+<?php
+
+//final não permite que a class seja herdada
+/*final*/ class Filha{
+
+
+    protected function funcaoTeste(){
+        echo 'chamando função teste';
+    }
+
+    public function printHello(){
+        echo 'Olá Mundo!';
+    }
+
+}
+// Não é possivel fazer uma class herdar uma classe final
+
+//extends indica que a class PAI ira herdar os metodos da class FILHA
+class Pai extends Filha {
+    public function printHello()
+    {
+        //para chamar a função original
+        parent::printHello();
+        echo 'nova função';
+    }
+
+    public function mostrarTchau(){
+        echo'Tchau Mundo!';
+        echo'<br/>';
+        $this->funcaoTeste();
+    }
+}
+/*
+$pai = new Pai;
+$pai->mostrarTchau();
+*/
+
+//Instanciar class final
+
+$filha = new Filha;
+$filha->printHello();
+
+//ao herdar a classe Filha a class Pai tem acesso a todos metodos da classe herdada
+$pai = new Pai;
+$pai->printHello();
+$pai->mostrarTchau();
+
+?>
+
+
+
+
+```
+
+## Aula 04
+
+### Abstract, self e mais conceitos
+
+```php
+<?php
+//declarar o nome da class em maiusculo é uma boa pratica
+
+//abstract não pode ser instanciada ela é apenas herdada
+abstract class Teste{
+    public  function func1(){
+        echo 'chamando função 1';
+    }
+    abstract function func2();
+}
+class Principal2{
+    public static function outroMetodoEstatico(){
+        echo 'meu outro metodo';
+    }
+}
+
+
+class Principal extends Teste{
+    //quando herda um metodo abstract é necessario declarar ele na classe principal
+    public function func2(){
+        echo 'estou declarando oficialmente um metodo abstrato';
+    }
+    public static function metodoestatico(){
+        echo'metodo estatico';
+
+    }
+
+    public function funcao(){
+        //Principal::metodoestatico();
+        //self e usado para acessar um metodo estatico que esta apenas disponivel para essa classe
+        self::metodoestatico();
+
+        Principal2::outroMetodoEstatico();
+
+    }
+}
+
+
+$principal = new Principal;
+$principal->func1();
+
+$principal->func2();
+$principal->funcao();
+
+?>
+```
+
+## Aula 05
+
+### Interface e implements
+
+`interface1.php`
+
+```php
+<?php
+//não pode ser instanciada, mas segue o mesmo principio de uma classe instanciada
+
+//conjunto de metodos, apenas cria os metodos, a classe principal diz o que o metodo ira fazer
+interface interface1{
+    public function printOnScreen($par);
+
+}
+
+?>
+```
+
+`index.php`
+
+```php
+<?php
+include ('interface1.php');
+
+class Teste implements interface1 {
+    public function printOnScreen($par)
+    {
+        echo $par;
+    }
+
+}
+
+$teste= new Teste;
+
+$teste->printOnScreen('Olá Mundo!');
+
+?>
+```
+
+## Aula 06
+
+### Métodos mágicos
+
+`class1.php`
+
+```php
+<?php
+
+//__construct ao instanciar o objeto o primeiro metodo a ser procurado, metodo construtor
+class class1
+{
+    private $nome;
+    private $idade;
+    //metodos magicos, que vem com a class
+    public  function __construct($nome,$idade)
+    {
+        $this->nome = $nome;
+        $this->idade = $idade;
+    }
+    public function getNome(){
+        return $this->nome;
+    }
+
+    public function getIdade(){
+        return $this->idade;
+    }
+}
+
+
+?>
+```
+
+`index.php`
+
+```php
+<?php
+include ('class1.php');
+$teste = new class1('André', 26);
+
+echo $teste->getNome();
+echo $teste->getIdade();
+
+?>
+```
+
