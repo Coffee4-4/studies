@@ -353,3 +353,257 @@ echo $teste->getIdade();
 ?>
 ```
 
+## Aula 07
+
+### Namespace e use keywords
+
+`index.php`
+
+```php
+<?php
+include('Class1.php');
+include('Class2.php');
+/*
+//Session da o contexto de diretorio para a Class
+$class1 = new \Sessao1\Class1();
+*/
+
+//e possivel dar um apelido para a class 
+use \Sessao1\Class1 as classe_exemplo;
+$class1 = new classe_exemplo;
+?>
+```
+
+`Class1.php`
+
+```php
+<?php
+
+//namespace divide as classes em sessões "dividir por pastas"
+
+namespace Sessao1;
+//é possivel utilizar outras sessões dentro de um sessão
+use Sessao2\Class2;
+class Class1 {
+
+    function __construct(){
+        echo'Classe instanciada';
+//possivel instanciar outra classe junto a primeira instanciada, desde que seja feito o include dela
+    /*   
+    new \Class2();
+// o uso da \ para indicar o diretorio da class
+*/
+    new \Sessao2\Class2();
+
+}
+}
+
+?>
+```
+
+`Class2.php`
+
+```php
+<?php
+namespace Sessao2;
+class Class2{
+    function __construct(){
+
+        echo 'Class2 instanciada';
+    }
+}
+
+?>
+```
+
+## Aula 08
+
+### Autoload
+
+`index.php`
+
+```php
+<?php
+
+include ('config.php');
+
+new Utilidades();
+
+new Home\Inicial();
+ ?>
+
+```
+
+`config.php`
+
+```php
+<?php
+function myAutoLoad($class){
+
+  //mudança na \ do diretorio para que não tenha problema com servidores linux ao ler diretorios
+  $class = str_replace('\\','/',$class);
+  echo $class;
+  //verifica se o arquivo existe
+  if (file_exists('classes/'.$class.'.php')) {
+    //faz o include
+    include('classes/'.$class.'.php');
+  }
+
+}
+
+//registra a função para o php chamar automaticamente
+spl_autoload_register('myAutoLoad');
+ ?>
+
+```
+
+`utilidades.php`
+
+```php
+<?php
+
+class Utilidades
+{
+
+  function __construct()
+  {
+    echo "Classe Utilidades foi chamada com sucesso";
+  }
+}
+
+
+ ?>
+
+```
+
+`inicial.php`
+
+```php
+<?php
+namespace Home;
+class Inicial
+{
+
+  function __construct()
+  {
+    echo "Classe Inicial chamada com sucesso!";
+  }
+}
+ ?>
+
+```
+
+## Aula 09
+
+### Constantes no PHPOO
+
+```php
+<?php
+
+class minhaClasse
+{
+  //declarção de constante
+  const VALOR = 300;
+  public function __construct()
+  {
+    echo self::VALOR;
+  }
+}
+
+echo minhaClasse::VALOR;
+ ?>
+
+```
+
+## Aula 10
+
+### Design paterns
+
+```php
+<?php
+/*
+class Dog
+{
+
+  function __construct()
+  {
+    echo "Class Dog";
+  }
+}
+
+
+class Cat
+{
+
+  function __construct()
+  {
+    echo "Class Cat";
+  }
+}
+
+//Singleton pattern
+class Animal
+{
+
+  public  static function build($nomeClasse){
+    if (class_exists($nomeClasse)) {
+      return new $nomeClasse;
+    }else {
+      die('Ops, a class não existe');
+    }
+
+  }
+}
+
+
+//new Dog();
+
+//Singleton pattern
+Animal::build('Cat');
+Animal::build('Mouse');
+*/
+
+//Facade
+
+//Adicionar/Fechar Carrinho - Carrinho
+//Calcular Frete - Frete
+//Fechar Pedido - Pedido
+
+//Temos uma classe responsavel para cada ação
+
+class Carrinho{
+  public function fecharCarrinho(){
+    echo "carrinho fechado";
+  }
+}
+
+class Frete{
+  public function calcularFrete(){}
+}
+
+class Pedido{
+  public function fecharPedido(){}
+}
+
+class Loja{
+  public function finalizarCompra(){
+    $this->fecharCarrinho();
+    $this-> calcularFrete();
+    $this->fecharPedido();
+
+  }
+
+  public function fecharCarrinho(){
+    $carrinho = new Carrinho();
+    $carrinho->fecharCarrinho();
+  }
+}
+
+
+$Loja = new Loja();
+$Loja -> finalizarCompra();
+
+ ?>
+
+```
+
