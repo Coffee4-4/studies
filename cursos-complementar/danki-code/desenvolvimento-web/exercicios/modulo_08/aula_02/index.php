@@ -1,6 +1,6 @@
 <?php
 date_default_timezone_set('America/Sao_Paulo');
-$pdo = new PDO('mysql:host=db4free.net:3306;dbname=studies','melicio','melicio1994');
+$pdo = new PDO('mysql:host=localhost;dbname=modulo_08','root','');
 
 /*
 //prepare ajuda a previnir sqlinject
@@ -10,17 +10,17 @@ $sql = $pdo->prepare("INSERT INTO `clientes` VALUES (null,'André','Melicio'.'20
 */
 if(isset($_POST['acao'])){
   $nome=$_POST['nome'];
-  $sobrenome = $_POST['$sobrenome'];
+  $sobrenome = $_POST['sobrenome'];
   $monento_registro = date('Y-m-d H:i:s');
 
   //usar ? em um valor DATATIME retorna a hora atual, necessario passar um array para executar
   $sql = $pdo->prepare("INSERT INTO `clientes` VALUES (null,?,?,?)");
 
   //faz a execução do metodo que preparamos
-//o pdo retira as tags malicioas,e faz inserção segura
-$sql ->execute(array($nome,$sobrenome,$monento_registro));
+  //o pdo retira as tags malicioas,e faz inserção segura
+  $sql ->execute(array($nome,$sobrenome,$monento_registro));
 
-echo "Cliente inserido com sucesso!";
+  echo "Cliente inserido com sucesso!";
 }
  ?>
  <!DOCTYPE html>
@@ -31,8 +31,8 @@ echo "Cliente inserido com sucesso!";
    </head>
    <body>
      <form method="post">
-       <input type="text" name="name" required>
-       <input type="text" name="sobrenome"required>
+       <input type="text" name="nome" required>
+       <input type="text" name="sobrenome" required>
        <input type="submit" name="acao" value="Enviar!">
      </form>
 
