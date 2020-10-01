@@ -291,3 +291,55 @@ $sql->execute();
 
 ### Lock tables
 
+`index.php`
+
+```php
+<?php
+$pdo =new PDO('mysql:host=localhost;dbname=modulo_08','root','');
+
+//LOCK TABLES bloqueia a tabela até que a ação seja concluida
+$pdo->exec("LOCK TABLES `posts` WRITE");
+sleep(10);
+
+
+
+?>
+```
+
+`index2.php`
+
+```php
+<?php
+$pdo =new PDO('mysql:host=localhost;dbname=modulo_08','root','');
+$pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+$sql = $pdo->prepare("SELECT * FROM `posts`");
+$sql->execute();
+
+$titulo = $sql->fetchAll();
+foreach ($titulo as $key => $value){
+    echo $value['titulo'];
+    echo '<hr>';
+}
+
+
+?>
+```
+
+## Aula 10 
+
+### Pesquisa avançada com LIKE
+
+```php
+<?php
+$pdo =new PDO('mysql:host=localhost;dbname=modulo_08b','root','');
+
+// ` -> permite o uso de caracteres especiais
+$sql = $pdo->prepare("SELECT * FROM `clientes` WHERE nome LIKE '%jo%'");
+$sql->execute();
+
+$nomes = $sql -> fetchAll();
+print_r($nomes);
+
+?>
+```
+
