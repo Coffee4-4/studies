@@ -1,0 +1,63 @@
+*{
+  margin: 0;
+  padding: 0;
+/* desin responsivo */
+  box-sizing: border-box;
+  font-family: "Open Sans";
+}
+
+/**Boot CSS**/
+.center{
+  max-width: 1280px;
+  padding: 0 2%;
+  margin: 0 auto;
+}
+.w33{
+  width: 33.3%
+}
+.w50{
+  widows: 50%;
+}
+.left{
+  float: left;
+}
+.right{
+  float: right;
+}
+.clear{
+  clear: both;
+}
+
+/**Estilização**/
+
+header{
+  background: #3d437a;
+  padding: 20px 0;
+
+}
+header .logo{
+  font-size: 23px;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: white;
+}
+.mobile{
+  display: none;
+}
+
+nav.desktop ul{
+  position: relative;
+  top: 6px;
+  list-style-type: none;
+}
+nav.desktop li {
+  font-weight: 300;
+  font-size: 15px;
+  padding: 0 30px;
+  text-transform: uppercase;
+  display: inline-block;
+}
+nav.desktop a {
+  color: white;
+  text-decoration: none;
+}

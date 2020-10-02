@@ -343,3 +343,107 @@ print_r($nomes);
 ?>
 ```
 
+## Aula 11
+
+### Entendendo IN e BETWEEN
+
+```php
+<?php
+//BETWEEN == Bom para datas
+$pdo = new PDO('mysql:host=localhost;dbname=modulo_08','root','');
+
+/*
+//IN = SELECIONE TUDO ENTRE (X,Y,Z)
+$sql = $pdo->prepare("SELECT * FROM clientes WHERE id IN (1,3)");
+*/
+//Consulta por datas
+$sql = $pdo->prepare("SELECT * FROM clientes WHERE momento_registro BETWEEN '2020-08-01' AND '2020-10-01'");
+
+$sql->execute();
+$clientes = $sql->fetchAll();
+
+print_r($clientes);
+
+
+
+ ?>
+
+```
+
+## Aula 12 
+
+### Having clause
+
+```php
+<?php
+
+$pdo = new PDO('mysql:host=localhost;dbname=modulo_08','root','');
+//HAVING == permite inserir uma condição
+$select = $pdo -> prepare("SELECT * FROM clientes GROUP BY cargo HAVING pontos > 40");
+
+$select->execute();
+
+echo "<pre>";
+print_r($select->fetchAll());
+echo "</pre>";
+ ?>
+
+```
+
+## Aula 13
+
+### Subquery na prática 
+
+```php
+<?php
+$conectBD = new PDO('mysql:host=localhost;dbname=modulo_08','root','');
+//SUBQUERY validação extra next 
+$filmes = $conectBD->prepare("SELECT * FROM filmes WHERE categoria_id = (SELECT id FROM categorias WHERE nome = 'terror')");
+
+$filmes->execute();
+echo "<pre>";
+var_dump($filmes->fetchAll());
+echo "</pre>";
+
+ ?>
+
+```
+
+## Aula 14
+
+### Create tables, show tables e mais queries avançadas
+
+```php
+<?php
+
+$pdo = new PDO('mysql:host=localhost;dbname=modulo_08','root','');
+
+
+//query == comando usado para criar tabela, puxar tabelas existentes
+
+//exibir todas as tabelas
+$allTable = $pdo->query('SHOW TABLES');
+
+$result = $allTable->fetchAll();
+echo "<pre>";
+print_r($result);
+echo "</pre>";
+
+$sql = 'CREATE TABLE MyGuests(
+id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+firstname VARCHAR(30) NOT NULL,
+lastname VARCHAR(30) NOT NULL,
+email VARCHAR(50) NOT NULL,
+reg_date TIMESTAMP
+
+)';
+
+//executa o comando da variavel $sql
+$pdo->exec($sql);
+
+
+
+ ?>
+
+```
+
