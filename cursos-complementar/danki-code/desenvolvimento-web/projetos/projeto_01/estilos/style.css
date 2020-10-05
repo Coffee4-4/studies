@@ -46,6 +46,9 @@ header .logo{
   font-size: 23px;
   font-weight: 300;
   text-transform: uppercase;
+}
+.logo a{
+  text-decoration: none;
   color: white;
 }
 .mobile{
@@ -178,44 +181,57 @@ section.especialidades h2.title{
   text-align: justify;
 }
 
-
-@media screen and (max-width:700px) {
-  nav.desktop{
-    display: none;
-  }
-  nav.mobile{
-    display: block;
-    width: 100%;
-
-  }
-  nav.mobile ul{
-    z-index: 3;
-    left: 0;
-    top: 55px;
-    display: block;
-    text-align: center;
-  }
-  nav.mobile li{
-    font-weight: 300;
-    font-size: 17px;
-    display: block;
-    background: white;
-    border-bottom: 1px solid #ccc;
-    padding: 8px 0;
-  }
-  nav.mobile a{
-    color: #444;
-    text-decoration: none;
-    display: block;
-  }
-  .botao-menu-mobile{
-    font-size: 24px;
-    cursor: pointer;
-    color: white;
-  }
+section.extras{
+  padding: 30px 0;
+  background: #404580;
+}
+.depoimentos-container,.servicos-container{
+  padding: 0 50px;
+}
+section.extras .title{
+  color: white;
+  font-weight: 300;
+  font-size: 25px;
+  margin-bottom: 15px;
+}
+.depoimento-single{
+  padding: 15px 0;
+  border-bottom: 1px solid #5056a0;
+}
+p.depoimento-descricao{
+  font-size: 15px;
+  color: white;
+  font-weight: 300;
+}
+p.nome-autor{
+  font-size: 15px;
+  color: white;
+  font-weight: bold;
+  margin-top: 5px;
+}
+.servicos ul{
+  margin: 20px 0 ;
+ /** list-style-position: inside;dentro do container**/
 
 }
+.servicos li{
+  margin-bottom: 15px;
+  font-size: 15px;
+  color: white;
+  font-weight: 300;
+}
+footer{
+  background: #313462;
+  padding: 30px 0;
+}
+footer p {
+  color: white;
+  text-align: center;
+  font-weight: 400;
+  font-size: 16px;
+}
 
+/**MOBILE**/
 @media screen and (max-width:768px){
   img{
     float: none !important; /*Aplicando a flutuação direto na imagem !important == reescreve a regra, força a utilizar a regra*/
@@ -237,7 +253,48 @@ section.especialidades h2.title{
     padding: 40px 20px;
   }
   section.banner-principal{
-  background-size: auto;
-  height: 350px;
+    background-size: auto;
+    height: 350px;
   }
 }
+
+
+@media screen and (max-width:700px) {
+  nav.desktop{
+    display: none;
+  }
+  nav.mobile{
+    display: block;
+
+  }
+  nav.mobile ul{
+    z-index: 3;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    top: 55px;
+    display: none;
+    text-align: center;
+  }
+  nav.mobile li{
+    font-weight: 300;
+    width: 100%;
+    font-size: 17px;
+    display: block;
+    background: white;
+    border-bottom: 1px solid #ccc;
+    padding: 8px 0;
+  }
+  nav.mobile a{
+    color: #444;
+    text-decoration: none;
+    display: block;
+  }
+  .botao-menu-mobile{
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+  }
+
+}
+
