@@ -26,6 +26,9 @@
           </ul>
         </nav>
         <nav class="mobile right">
+          <div class="botao-menu-mobile">
+            <i class="fa fa-bars" aria-hidden="true"></i>
+          </div> <!-- botao-menu-mobile -->
           <ul>
             <li><a href="#">Home</a></li>
             <li><a href="#">Sobre</a></li>
@@ -41,6 +44,7 @@
 
 
     <section class="banner-principal">
+      <div class="overlay"> </div> <!-- overlay -->
       <div class="center">
         <form>
           <h2>Qual o seu e-mail?</h2>
@@ -59,34 +63,33 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
           </div>
 
-          <div class="w50 left">
+          <div class="w50 right img-box">
             <!-- imagem do autor -->
             <img src="img/autor.jpeg" alt="">
           </div>
-          <div class="clear">
-
-          </div>
+          <div class="clear"></div>
       </div>
     </section>
 
     <section class="especialidades">
       <div class="center">
-        <h2 class="title"></h2>
+        <h2 class="title">Especialidades</h2>
         <div class="w33 left box-especialidades">
           <h3><i class="fa fa-css3" aria-hidden="true"></i></h3>
-          <h3>CSS3</h3>
+          <h4>CSS3</h4>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         </div>
         <div class="w33 left box-especialidades">
           <h3><i class="fa fa-html5" aria-hidden="true"></i></h3>
-          <h3>HTML5</h3>
+          <h4>HTML5</h4>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         </div>
         <div class="w33 left box-especialidades">
           <h3><i class="fa fa-code" aria-hidden="true"></i></h3>
-          <h3>JavaScript</h3>
+          <h4>JavaScript</h4>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         </div>
+        <div class="clear"></div>
       </div>
     </section>
 
