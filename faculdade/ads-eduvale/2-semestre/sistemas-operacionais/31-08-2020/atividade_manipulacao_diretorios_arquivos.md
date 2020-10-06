@@ -1,5 +1,7 @@
 # Atividades:
 
+## André Luiz Melicio 						RA: 057415
+
 ##Parte 1: Manipulação de Diretórios e Arquivos
 
 1. Dentro de seu diretório home, crie o diretório "exercicio".
