@@ -14,6 +14,13 @@
     <title>Projeto 01</title>
   </head>
   <body>
+  <?php
+
+  echo $_GET['url']
+
+  ?>
+
+
     <header>
       <div class="center">
         <div class="logo left"><a href="/">Logomarca</a></div>

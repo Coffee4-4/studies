@@ -27,6 +27,25 @@ $(function () {
         }
 
          */
-        listaMenu.slideToggle();
+        if (listaMenu.is(':hidden')== true){
+            // cria a variavel icone que ira receber o resulado da função find(produra diretamente o elemento dentro da class) ou seja a classe do nosso icone
+            //var icone = $('.botao-menu-mobile i');
+            var icone = $('.botao-menu-mobile').find('i');
+
+            //remove e adicona class
+            icone.removeClass('fa fa-bars');
+            icone.addClass('fa fa-times-circle');
+            listaMenu.slideToggle();
+
+        }else{
+            var icone = $('.botao-menu-mobile').find('i');
+            icone.removeClass('fa fa-times-circle');
+            icone.addClass(' fa fa-bars');
+            listaMenu.slideToggle();
+
+        }
+
+
+
     })
 })
