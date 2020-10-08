@@ -50,7 +50,7 @@
 <?php
 //if de uma linha: condição? TRUE : FALSE;
 $url = isset($_GET['url']) ? $_GET['url'] : 'home';
-if (file_exists('pages/' . $url . '.php')) {
+if (file_exists('pages/'.$url.'.php')) {
     include('pages/' . $url . '.php');
 } else {
     //Podemos fazer o que quiser, pois a pag não existe.
