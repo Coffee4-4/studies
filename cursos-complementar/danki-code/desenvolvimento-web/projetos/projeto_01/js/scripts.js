@@ -46,5 +46,16 @@ $(function () {
         }
 
 
-    })
+    });
+
+    if($('target').length >0){
+        // O elemento existe, portanto precisamos dar o scroll em um elmento
+
+        //
+        var elemento = '#'+$('target').attr('target');
+
+        //atribui a referencia do valor do elemento
+        var divScroll = $(elemento).offset().top;
+        $('html,body').animate({'scrollTop':divScroll},1500);
+    }
 })

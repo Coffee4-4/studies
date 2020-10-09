@@ -1,4 +1,7 @@
-<section class="banner-principal">
+<section class="banner-container">
+    <div style="background-image: url('<?php echo INCLUDE_PATH?>img/bg-form.jpeg')" class="banner-single"></div> <!--banner-single-->
+    <div style="background-image: url('<?php echo INCLUDE_PATH?>img/bg-form2.jpg')" class="banner-single"></div> <!--banner-single-->
+    <div style="background-image: url('<?php echo INCLUDE_PATH?>img/bg-form3.jpeg')" class="banner-single"></div> <!--banner-single-->
     <div class="overlay"></div> <!-- overlay -->
     <div class="center">
         <form>
@@ -7,6 +10,7 @@
             <input type="submit" name="acao" value="Cadastrar!">
         </form>
     </div>
+    <div class="bullets">    </div>
 </section>
 
 <section class="descricao-autor">
@@ -70,7 +74,7 @@
 
 <section class="extras">
     <div class="center">
-        <div class="w50 left depoimentos-container">
+        <div id="depoimentos" class="w50 left depoimentos-container">
             <h2 class="title">Depoimentos dos nossos clientes</h2>
             <div class="depoimento-single">
                 <p class="depoimento-descricao">"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
@@ -98,7 +102,7 @@
             </div>
         </div>
 
-        <div class="w50 left servicos-container">
+        <div id="servicos" class="w50 left servicos-container">
             <h2 class="title">Serviços</h2>
             <div class="servicos">
                 <ul>

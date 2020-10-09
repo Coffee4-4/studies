@@ -8,8 +8,13 @@
 
 /**Boot CSS**/
 html, body {
-    overflow-x: hidden;
+    /*overflow-x: hidden; não funciona com jquery*/
     height: 100%;
+}
+
+/*Resolve o erro do scroll-x no IE*/
+body{
+    overflow-x: hidden;
 }
 
 img {
@@ -91,14 +96,24 @@ nav.desktop a {
     text-decoration: none;
 }
 
-section.banner-principal {
+section.banner-container {
     width: 100%;
     height: 600px;
-    background-image: url('../img/bg-form.jpeg');
-    /* BG cubre toda a tela  */
-    background-size: cover;
+    /*background-image: url('../img/bg-form.jpeg');
+    !* BG cubre toda a tela  *!
+    background-size: cover;*/
     position: relative;
 
+}
+.banner-single{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-size: cover;
+    background-position: center;
 }
 
 .overlay {
@@ -108,15 +123,14 @@ section.banner-principal {
     width: 100%;
     height: 100%;
     background-color: rgba(51, 51, 51, 0.7);
-    z-index: 1; /*vem primeiro que o form*/
+    z-index: 2; /*vem primeiro que o form*/
 
 }
 
-section.banner-principal form {
+section.banner-container form {
     width: 93%;
     max-width: 600px;
-
-    z-index: 2; /*vem depois do overlay*/
+    z-index: 3; /*vem depois do overlay*/
     position: absolute;
     left: 50%;
     top: 50%;
@@ -125,14 +139,14 @@ section.banner-principal form {
     -ms-transform: translate(-50%, -50%);
 }
 
-section.banner-principal form h2 {
+section.banner-container form h2 {
     color: white;
     font-weight: 300;
     font-size: 30px;
     text-align: center;
 }
 
-section.banner-principal form input[type=email] {
+section.banner-container form input[type=email] {
     width: 100%;
     height: 66px;
     margin-top: 10px;
@@ -143,7 +157,7 @@ section.banner-principal form input[type=email] {
     border: 0;
 }
 
-section.banner-principal form input[type=submit] {
+section.banner-container form input[type=submit] {
     width: 100%;
     height: 66px;
     margin-top: 10px;
@@ -343,6 +357,25 @@ section.erro-404 a {
     color: white;
     cursor: pointer;
     border-radius: 3px;
+}
+.bullets{
+    position: absolute;
+    z-index: 5;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.bullets span{
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: #444;
+}
+.bullets span.active-slider{
+    background: white;
 }
 
 /**MOBILE**/

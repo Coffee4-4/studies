@@ -20,12 +20,12 @@
 <?php
 $url = isset($_GET['url']) ? $_GET['url'] : 'home';
 switch ($url) {
-    case 'sobre':
+    case 'depoimentos':
         //cria uma tag
-        echo '<target target="sobre" />';
+        echo '<target target="depoimentos" />';
         break;
     case 'servicos':
-        echo '<target target="sobre" />';
+        echo '<target target="servicos" />';
         break;
 }
 
@@ -37,7 +37,7 @@ switch ($url) {
         <nav class="desktop right">
             <ul>
                 <li><a href="<?php echo INCLUDE_PATH; ?>">Home</a></li>
-                <li><a href="<?php echo INCLUDE_PATH; ?>sobre">Sobre</a></li>
+                <li><a href="<?php echo INCLUDE_PATH; ?>depoimentos">Depoimentos</a></li>
                 <li><a href="<?php echo INCLUDE_PATH; ?>servicos">Serviços</a></li>
                 <li><a href="<?php echo INCLUDE_PATH; ?>contato">Contato</a></li>
             </ul>
@@ -49,7 +49,7 @@ switch ($url) {
             <ul>
                 <li><a href="<?php echo INCLUDE_PATH; ?>">Home</a></li>
                 <li><a href="<?php echo INCLUDE_PATH; ?>sobre">Sobre</a></li>
-                <li><a href="<?php echo INCLUDE_PATH; ?>servicos">Serviços</a></li>
+                <li><a href="<?php echo INCLUDE_PATH; ?>depoimentos">Depoimentos</a></li>
                 <li><a href="<?php echo INCLUDE_PATH; ?>contato">Contato</a></li>
             </ul>
         </nav>
@@ -65,7 +65,7 @@ if (file_exists('pages/' . $url . '.php')) {
     include('pages/' . $url . '.php');
 } else {
     //Podemos fazer o que quiser, pois a pag não existe.
-    if ($url != 'sobre' && $url != 'servicos') {
+    if ($url != 'depoimentos' && $url != 'servicos') {
         $pagina404 = true;
         include('pages/404.php');
     } else {
@@ -87,6 +87,14 @@ if (isset($pagina404) && $pagina404 == true) echo 'class="fixed"';
 <script src="<?php echo INCLUDE_PATH; ?>js/jquery.js"></script>
 <!--por ser importado antes ele da acesso a todos os seus metodos ao proximo script a ser importado.-->
 <script src="<?php echo INCLUDE_PATH; ?>js/scripts.js"></script>
+<?php if ($url == 'home' || $url == '') {
+    ?>
+    <script src="<?php echo INCLUDE_PATH; ?>js/slider.js"></script>
+
+    <?php
+}
+?>
+
 <?php
 if ($url == 'contato') {
     ?>
