@@ -4292,3 +4292,546 @@ section.erro-404 a {
 
 ```
 
+## Aula 10 
+
+### Navegação sem atualizar
+
+`scripts.js`
+
+```js
+$(function () {
+    // Aqui vai todo o nosso codigo javascript.
+
+    //$() == chama a função, que recebe como parametro a classe do HTML que queremos trabalhar.
+    $('nav.mobile').click(function () {
+        //O que vai acontecer ao clicar na nav.mobile.
+
+        var listaMenu = $('nav.mobile ul');
+        /*
+        // ABRIR MENU ATRAVÉS DO fadeIn
+        if(listaMenu.is(':hidden')==true)
+            listaMenu.fadeIn(); //exibe a lista do menu
+        else
+            listaMenu.fadeOut();
+
+        listaMenu.slideToggle(); //detecta automaticamente se o menu esta aberto ou fechado.
+
+
+        // Abrir ou fechar sem efeitos
+        if (listaMenu.is(':hidden')== true){
+            //listaMenu.show();
+            listaMenu.css('display','block');
+
+        }else{
+            //listaMenu.hide();
+            listaMenu.css('display','none');
+        }
+
+         */
+        if (listaMenu.is(':hidden') == true) {
+            // cria a variavel icone que ira receber o resulado da função find(produra diretamente o elemento dentro da class) ou seja a classe do nosso icone
+            //var icone = $('.botao-menu-mobile i');
+            var icone = $('.botao-menu-mobile').find('i');
+
+            //remove e adicona class
+            icone.removeClass('fa fa-bars');
+            icone.addClass('fa fa-times-circle');
+            listaMenu.slideToggle();
+
+        } else {
+            var icone = $('.botao-menu-mobile').find('i');
+            icone.removeClass('fa fa-times-circle');
+            icone.addClass(' fa fa-bars');
+            listaMenu.slideToggle();
+
+        }
+
+
+    });
+
+    if($('target').length >0){
+        // O elemento existe, portanto precisamos dar o scroll em um elmento
+
+        //
+        var elemento = '#'+$('target').attr('target');
+
+        //atribui a referencia do valor do elemento
+        var divScroll = $(elemento).offset().top;
+        $('html,body').animate({'scrollTop':divScroll},1500);
+    }
+    carregarDinamico();
+    function carregarDinamico() {
+        $('[realtime]').click(function () {
+            var pagina = $(this).attr('realtime');
+            $('.container-principal').load(include_path+pagina+'.php');
+
+            initialize();
+            addMarker(-22.8821912,-49.2383956,'',"Minha casa",undefined,false);
+            return false;
+
+        })
+
+    }
+    
+})
+
+```
+
+`constants.js`
+
+```js
+var include_path=$('base').attr('base');
+```
+
+`map.js`
+
+```js
+var map;
+
+function initialize() {
+    //propriedades do map
+    var mapProp = {
+        //coordenadas
+        center:new google.maps.LatLng(-22.8821912,-49.2383956),
+        zoom:14,
+        scrollwheel: false,
+        styles: [{
+            stylers: [{
+                saturation: -100
+            }]
+        }],
+        mapTypeId:google.maps.MapTypeId.ROADMAP
+    };
+    // elemento onde o mapa sera inserido
+    map=new google.maps.Map(document.getElementById("map"),mapProp);
+}
+//adicionar pontos no mapa
+function addMarker(lat,long,icon,content,showInfoWindow,openInfoWindow){
+    var myLatLng = {lat:lat,lng:long};
+
+    if(icon === ''){
+        var marker = new google.maps.Marker({
+            position: myLatLng,
+            map: map,
+            icon:icon
+        });
+    }else{
+        var marker = new google.maps.Marker({
+            position: myLatLng,
+            map: map,
+            icon:icon
+        });
+    }
+
+    var infoWindow = new google.maps.InfoWindow({
+        content: content,
+        maxWidth:200
+    });
+
+    google.maps.event.addListener(infoWindow, 'domready', function() {
+
+        // Reference to the DIV which receives the contents of the infowindow using jQuery
+        var iwOuter = $('.gm-style-iw');
+
+        /* The DIV we want to change is above the .gm-style-iw DIV.
+         * So, we use jQuery and create a iwBackground variable,
+         * and took advantage of the existing reference to .gm-style-iw for the previous DIV with .prev().
+         */
+        var iwBackground = iwOuter.prev();
+
+        // Remove the background shadow DIV
+        iwBackground.children(':nth-child(2)').css({'background' : 'rgb(255,255,255)'}).css({'border-radius':'0px'});
+
+        // Remove the white background DIV
+        iwBackground.children(':nth-child(4)').css({'background' : 'rgb(255,255,255)'}).css({'border-radius':'0px'});
+
+        // Moves the shadow of the arrow 76px to the left margin
+        iwBackground.children(':nth-child(1)').attr('style', function(i,s){ return s + 'display:none;'});
+
+        // Moves the arrow 76px to the left margin
+        iwBackground.children(':nth-child(3)').attr('style', function(i,s){ return s + 'display:none;'});
+
+    });
+
+    //evento de click retorna texto
+    if(showInfoWindow == undefined){
+        google.maps.event.addListener(marker, 'click', function () {
+            infoWindow.open(map, marker);
+        });
+    }else if(openInfoWindow == true){
+        infoWindow.open(map, marker);
+    }
+}
+
+
+
+$(function(){
+
+    initialize();
+    addMarker(-22.8821912,-49.2383956,'',"Minha casa",undefined,false);
+
+
+
+
+
+})
+```
+
+`index.php`
+
+```php+HTML
+<?php include('config.php'); ?>
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+<head>
+
+    <meta charset="utf-8">
+    <!-- design reponsivo  -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO -->
+    <meta name="description" content="Descrição do meu website">
+    <meta name="keywords" content="palavras-chave,do,meu,site">
+    <link rel="stylesheet" href="<?php echo INCLUDE_PATH; ?>estilos/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+    <!--incluindo a variavel do diretorio raiz-->
+
+    <link rel="stylesheet" href="<?php echo INCLUDE_PATH; ?>estilos/style.css">
+    <title>Projeto 01</title>
+</head>
+<body>
+<base base="<?php echo INCLUDE_PATH;?>"/>
+<?php
+$url = isset($_GET['url']) ? $_GET['url'] : 'home';
+switch ($url) {
+    case 'depoimentos':
+        //cria uma tag
+        echo '<target target="depoimentos" />';
+        break;
+    case 'servicos':
+        echo '<target target="servicos" />';
+        break;
+}
+
+?>
+
+<header>
+    <div class="center">
+        <div class="logo left"><a href="/">Logomarca</a></div>
+        <nav class="desktop right">
+            <ul>
+                <li><a href="<?php echo INCLUDE_PATH; ?>">Home</a></li>
+                <li><a href="<?php echo INCLUDE_PATH; ?>depoimentos">Depoimentos</a></li>
+                <li><a href="<?php echo INCLUDE_PATH; ?>servicos">Serviços</a></li>
+                <li><a realtime="contato" href="<?php echo INCLUDE_PATH; ?>contato">Contato</a></li>
+            </ul>
+        </nav>
+        <nav class="mobile right">
+            <div class="botao-menu-mobile">
+                <i class="fa fa-bars" aria-hidden="true"></i>
+            </div> <!-- botao-menu-mobile -->
+            <ul>
+                <li><a href="<?php echo INCLUDE_PATH; ?>">Home</a></li>
+                <li><a href="<?php echo INCLUDE_PATH; ?>sobre">Sobre</a></li>
+                <li><a href="<?php echo INCLUDE_PATH; ?>depoimentos">Depoimentos</a></li>
+                <li><a realtime="contato" href="<?php echo INCLUDE_PATH; ?>contato">Contato</a></li>
+            </ul>
+        </nav>
+        <div class="clear">
+
+        </div>
+    </div>
+</header>
+<div class="container-principal">
+
+<?php
+//if de uma linha: condição? TRUE : FALSE;
+if (file_exists('pages/' . $url . '.php')) {
+    include('pages/' . $url . '.php');
+} else {
+    //Podemos fazer o que quiser, pois a pag não existe.
+    if ($url != 'depoimentos' && $url != 'servicos') {
+        $pagina404 = true;
+        include('pages/404.php');
+    } else {
+        include('pages/home.php');
+    }
+
+}
+
+?>
+
+</div> <!--Container-principal-->
+<footer <?php
+if (isset($pagina404) && $pagina404 == true) echo 'class="fixed"';
+?>>
+    <div class="center">
+        <p>Todos os direitos reservados</p>
+    </div>
+</footer>
+<script src="<?php echo INCLUDE_PATH; ?>js/jquery.js"></script>
+<?php
+if ($url == 'contato') {
+    ?>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDHPNQxozOzQSZ-djvWGOBUsHkBUoT_qH4"></script>
+    <script src="<?php echo INCLUDE_PATH; ?>js/map.js"></script>
+
+<?php } ?>
+<!--por ser importado antes ele da acesso a todos os seus metodos ao proximo script a ser importado.-->
+<script src="<?php echo INCLUDE_PATH; ?>js/scripts.js"></script>
+<?php if ($url == 'home' || $url == '') {
+    ?>
+    <script src="<?php echo INCLUDE_PATH; ?>js/slider.js"></script>
+
+    <?php
+}
+?>
+
+
+
+</body>
+</html>
+
+```
+
+## Aula 11
+
+### Google maps em tempo real e mais exemplos práticos
+
+`index.php`
+
+```php+HTML
+<?php include('config.php'); ?>
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+<head>
+
+    <meta charset="utf-8">
+    <!-- design reponsivo  -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO -->
+    <meta name="description" content="Descrição do meu website">
+    <meta name="keywords" content="palavras-chave,do,meu,site">
+    <link rel="stylesheet" href="<?php echo INCLUDE_PATH; ?>estilos/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+    <!--incluindo a variavel do diretorio raiz-->
+
+    <link rel="stylesheet" href="<?php echo INCLUDE_PATH; ?>estilos/style.css">
+    <link rel="icon" href="<?php echo INCLUDE_PATH;?>favicon.ico" type="image/x-icon">
+    <title>Projeto 01</title>
+</head>
+<body>
+<base base="<?php echo INCLUDE_PATH; ?>" />
+<?php
+$url = isset($_GET['url']) ? $_GET['url'] : 'home';
+switch ($url) {
+    case 'depoimentos':
+        //cria uma tag
+        echo '<target target="depoimentos" />';
+        break;
+    case 'servicos':
+        echo '<target target="servicos" />';
+        break;
+}
+
+?>
+
+<header>
+    <div class="center">
+        <div class="logo left"><a href="/">Logomarca</a></div>
+        <nav class="desktop right">
+            <ul>
+                <li><a href="<?php echo INCLUDE_PATH; ?>">Home</a></li>
+                <li><a href="<?php echo INCLUDE_PATH; ?>depoimentos">Depoimentos</a></li>
+                <li><a href="<?php echo INCLUDE_PATH; ?>servicos">Serviços</a></li>
+                <li><a realtime="contato" href="<?php echo INCLUDE_PATH; ?>contato">Contato</a></li>
+            </ul>
+        </nav>
+        <nav class="mobile right">
+            <div class="botao-menu-mobile">
+                <i class="fa fa-bars" aria-hidden="true"></i>
+            </div> <!-- botao-menu-mobile -->
+            <ul>
+                <li><a href="<?php echo INCLUDE_PATH; ?>">Home</a></li>
+                <li><a href="<?php echo INCLUDE_PATH; ?>sobre">Sobre</a></li>
+                <li><a href="<?php echo INCLUDE_PATH; ?>depoimentos">Depoimentos</a></li>
+                <li><a realtime="contato" href="<?php echo INCLUDE_PATH; ?>contato">Contato</a></li>
+            </ul>
+        </nav>
+        <div class="clear">
+
+        </div>
+    </div>
+</header>
+<div class="container-principal">
+
+    <?php
+    //if de uma linha: condição? TRUE : FALSE;
+    if (file_exists('pages/' . $url . '.php')) {
+        include('pages/' . $url . '.php');
+    } else {
+        //Podemos fazer o que quiser, pois a pag não existe.
+        if ($url != 'depoimentos' && $url != 'servicos') {
+            $pagina404 = true;
+            include('pages/404.php');
+        } else {
+            include('pages/home.php');
+        }
+
+    }
+
+    ?>
+
+</div> <!--Container-principal-->
+<footer <?php
+if (isset($pagina404) && $pagina404 == true) echo 'class="fixed"';
+?>>
+    <div class="center">
+        <p>Todos os direitos reservados</p>
+    </div>
+</footer>
+<script src="<?php echo INCLUDE_PATH; ?>js/jquery.js"></script>
+<script src="<?php echo INCLUDE_PATH; ?>js/constants.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDHPNQxozOzQSZ-djvWGOBUsHkBUoT_qH4"></script>
+<script src="<?php echo INCLUDE_PATH; ?>js/map.js"></script>
+
+
+<?php
+if ($url == 'contato') {
+    ?>
+
+<?php } ?>
+<!--por ser importado antes ele da acesso a todos os seus metodos ao proximo script a ser importado.-->
+<script src="<?php echo INCLUDE_PATH; ?>js/scripts.js"></script>
+<?php if ($url == 'home' || $url == '') {
+    ?>
+    <script src="<?php echo INCLUDE_PATH; ?>js/slider.js"></script>
+    <script src="<?php echo INCLUDE_PATH; ?>js/exemplo.js"></script>
+
+    <?php
+}
+?>
+
+
+</body>
+</html>
+
+```
+
+`scripts.js`
+
+```js
+$(function () {
+    // Aqui vai todo o nosso codigo javascript.
+
+    //$() == chama a função, que recebe como parametro a classe do HTML que queremos trabalhar.
+    $('nav.mobile').click(function () {
+        //O que vai acontecer ao clicar na nav.mobile.
+
+        var listaMenu = $('nav.mobile ul');
+        /*
+        // ABRIR MENU ATRAVÉS DO fadeIn
+        if(listaMenu.is(':hidden')==true)
+            listaMenu.fadeIn(); //exibe a lista do menu
+        else
+            listaMenu.fadeOut();
+
+        listaMenu.slideToggle(); //detecta automaticamente se o menu esta aberto ou fechado.
+
+
+        // Abrir ou fechar sem efeitos
+        if (listaMenu.is(':hidden')== true){
+            //listaMenu.show();
+            listaMenu.css('display','block');
+
+        }else{
+            //listaMenu.hide();
+            listaMenu.css('display','none');
+        }
+
+         */
+        if (listaMenu.is(':hidden') == true) {
+            // cria a variavel icone que ira receber o resulado da função find(produra diretamente o elemento dentro da class) ou seja a classe do nosso icone
+            //var icone = $('.botao-menu-mobile i');
+            var icone = $('.botao-menu-mobile').find('i');
+
+            //remove e adicona class
+            icone.removeClass('fa fa-bars');
+            icone.addClass('fa fa-times-circle');
+            listaMenu.slideToggle();
+
+        } else {
+            var icone = $('.botao-menu-mobile').find('i');
+            icone.removeClass('fa fa-times-circle');
+            icone.addClass(' fa fa-bars');
+            listaMenu.slideToggle();
+
+        }
+
+
+    });
+
+    if ($('target').length > 0) {
+        // O elemento existe, portanto precisamos dar o scroll em um elmento
+
+        //
+        var elemento = '#' + $('target').attr('target');
+
+        //atribui a referencia do valor do elemento
+        var divScroll = $(elemento).offset().top;
+        $('html,body').animate({'scrollTop': divScroll}, 1500);
+    }
+
+    carregarDinamico();
+    function carregarDinamico() {
+        $('[realtime]').click(function () {
+            var pagina = $(this).attr('realtime');
+            $('.container-principal').hide();
+            $('.container-principal').load(include_path + 'pages/' + pagina + '.php');
+
+            setTimeout(function () {
+                initialize();
+                addMarker(-22.8821912, -49.2383956, '', "Minha casa", undefined, false);
+            }, 1000);
+
+            $('.container-principal').fadeIn(1000);
+
+
+            return false;
+
+        })
+    }
+
+})
+
+```
+
+`exemplo.js`
+
+```js
+$(function () {
+    var atual = -1;
+    var maximo = $('.box-especialidades').length -1;
+    var timer;
+    var animacaoDelay = 3;
+
+    executarAnimacao();
+    function executarAnimacao() {
+        $('.box-especialidades').hide();
+        timer = setInterval(logicaAnimacao,animacaoDelay*1000);
+        
+        function logicaAnimacao() {
+            atual++;
+            if (atual > maximo){
+                clearInterval(timer);
+                return false;
+            }
+
+            $('.box-especialidades').eq(atual).fadeIn();
+
+        }
+
+    }
+
+})
+```
+

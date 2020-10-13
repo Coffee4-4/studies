@@ -48,14 +48,35 @@ $(function () {
 
     });
 
-    if($('target').length >0){
+    if ($('target').length > 0) {
         // O elemento existe, portanto precisamos dar o scroll em um elmento
 
         //
-        var elemento = '#'+$('target').attr('target');
+        var elemento = '#' + $('target').attr('target');
 
         //atribui a referencia do valor do elemento
         var divScroll = $(elemento).offset().top;
-        $('html,body').animate({'scrollTop':divScroll},1500);
+        $('html,body').animate({'scrollTop': divScroll}, 1500);
     }
+
+    carregarDinamico();
+    function carregarDinamico() {
+        $('[realtime]').click(function () {
+            var pagina = $(this).attr('realtime');
+            $('.container-principal').hide();
+            $('.container-principal').load(include_path + 'pages/' + pagina + '.php');
+
+            setTimeout(function () {
+                initialize();
+                addMarker(-22.8821912, -49.2383956, '', "Minha casa", undefined, false);
+            }, 1000);
+
+            $('.container-principal').fadeIn(1000);
+
+
+            return false;
+
+        })
+    }
+
 })
