@@ -63,14 +63,16 @@ $(function () {
     function carregarDinamico() {
         $('[realtime]').click(function () {
             var pagina = $(this).attr('realtime');
+            //esconde o conteudo
             $('.container-principal').hide();
+            //carrega a nova pag
             $('.container-principal').load(include_path + 'pages/' + pagina + '.php');
 
             setTimeout(function () {
                 initialize();
                 addMarker(-22.8821912, -49.2383956, '', "Minha casa", undefined, false);
             }, 1000);
-
+            //exibe a pag
             $('.container-principal').fadeIn(1000);
 
 

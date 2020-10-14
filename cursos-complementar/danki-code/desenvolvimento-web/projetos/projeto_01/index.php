@@ -18,7 +18,9 @@
     <title>Projeto 01</title>
 </head>
 <body>
+//variavel utilizada no path do jquery
 <base base="<?php echo INCLUDE_PATH; ?>" />
+
 <?php
 $url = isset($_GET['url']) ? $_GET['url'] : 'home';
 switch ($url) {
@@ -68,10 +70,12 @@ switch ($url) {
         include('pages/' . $url . '.php');
     } else {
         //Podemos fazer o que quiser, pois a pag não existe.
+        //verifica se a pag e diferente de depoimentos e servicos scroll dinamico
         if ($url != 'depoimentos' && $url != 'servicos') {
             $pagina404 = true;
             include('pages/404.php');
         } else {
+            //caso seja servicos ou depoimentos inclui a home
             include('pages/home.php');
         }
 

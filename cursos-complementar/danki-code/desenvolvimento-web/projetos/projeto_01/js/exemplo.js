@@ -6,6 +6,7 @@ $(function () {
 
     executarAnimacao();
     function executarAnimacao() {
+        //esconde o elemento
         $('.box-especialidades').hide();
         timer = setInterval(logicaAnimacao,animacaoDelay*1000);
         
