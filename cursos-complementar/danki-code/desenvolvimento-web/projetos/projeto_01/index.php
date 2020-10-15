@@ -18,7 +18,7 @@
     <title>Projeto 01</title>
 </head>
 <body>
-//variavel utilizada no path do jquery
+<!-- variavel utilizada no path do jquery -->
 <base base="<?php echo INCLUDE_PATH; ?>" />
 
 <?php
