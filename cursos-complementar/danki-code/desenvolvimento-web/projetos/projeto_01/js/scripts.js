@@ -1,4 +1,4 @@
-$(function () {
+
     // Aqui vai todo o nosso codigo javascript.
 
     //$() == chama a função, que recebe como parametro a classe do HTML que queremos trabalhar.
