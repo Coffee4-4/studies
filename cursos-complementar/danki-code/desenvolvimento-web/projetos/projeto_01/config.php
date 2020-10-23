@@ -2,7 +2,8 @@
 //uma função pode ser passada dentro de uma variavel
 $autoload = function ($class){
     if ($class == 'Email'){
-        include ('classes/phpmailer/PHPMailerAutoload.php');
+        //faz uma verificação e inclui apenas uma vez
+        require_once ('classes/phpmailer/PHPMailerAutoload.php');
     }
     include ('classes/'.$class.'.php');
 };
@@ -13,6 +14,6 @@ spl_autoload_register($autoload);
 
 
 //Definindo diretorio raiz
-    define('INCLUDE_PATH','http://localhost/studies/cursos-complementar/danki-code/desenvolvimento-web/projetos/projeto_01/')
+    define('INCLUDE_PATH','http://localhost/GitHub/studies/cursos-complementar/danki-code/desenvolvimento-web/projetos/projeto_01/')
 
 ?>

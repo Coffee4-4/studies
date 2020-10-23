@@ -4,7 +4,36 @@
     <div style="background-image: url('<?php echo INCLUDE_PATH?>img/bg-form3.jpeg')" class="banner-single"></div> <!--banner-single-->
     <div class="overlay"></div> <!-- overlay -->
     <div class="center">
-        <form>
+
+        <?php
+            if (isset($_POST['acao'])){
+                //Enviei o formulário.
+                if ($_POST['email'] != ''){
+                    $email = $_POST['email'];
+                    if (filter_var($email, FILTER_VALIDATE_EMAIL)){
+                        // Função nativa do php que valida se o texto digitado é um email valido
+                        // só enviar
+                        $mail = new Email('mail.livingtech.com.br', 'contato@livingtech.com.br', 'krat*thuy_PLED0kast!1', 'Contato');
+                        $mail->addAdress('nybble94@gmail.com', 'André');
+                        $corpo = "E-mail cadastrado na home do site: <hr>$email";
+                        $info = array('assunto'=>'Um novo e-mail cadastrado no site!', 'corpo'=>$corpo);
+                        $mail->formatarEmail($info);
+                        if($mail->enviarEmail()){
+                            echo '<script> alert("Enviado com sucesso.")</script>' ;
+                        }else{
+                            echo '<script> alert("Algo deu errado.")</script>' ;
+                        }
+                    }else{
+                        echo '<script> alert("Não é um e-mail valido.")</script>' ;
+
+                    }
+                }else{
+                    echo '<script> alert("Insira um e-mail válido.")</script>' ;
+                }
+            }
+
+        ?>
+        <form method="post">
             <h2>Qual o seu e-mail?</h2>
             <input type="email" name="email" required>
             <input type="submit" name="acao" value="Cadastrar!">
