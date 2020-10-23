@@ -35,6 +35,9 @@ switch ($url) {
 
 ?>
 
+
+<?php new Email();?>
+
 <header>
     <div class="center">
         <div class="logo left"><a href="/">Logomarca</a></div>
