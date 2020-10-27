@@ -14,12 +14,12 @@
     <!--incluindo a variavel do diretorio raiz-->
 
     <link rel="stylesheet" href="<?php echo INCLUDE_PATH; ?>estilos/style.css">
-    <link rel="icon" href="<?php echo INCLUDE_PATH;?>favicon.ico" type="image/x-icon">
+    <link rel="icon" href="<?php echo INCLUDE_PATH; ?>favicon.ico" type="image/x-icon">
     <title>Projeto 01</title>
 </head>
 <body>
 <!-- variavel utilizada no path do jquery -->
-<base base="<?php echo INCLUDE_PATH; ?>" />
+<base base="<?php echo INCLUDE_PATH; ?>"/>
 
 <?php
 $url = isset($_GET['url']) ? $_GET['url'] : 'home';
@@ -36,7 +36,10 @@ switch ($url) {
 ?>
 
 
-<?php //new Email();?>
+<div class="sucesso">Formulário enviado com sucesso!</div>
+<div class="overlay-loading">
+    <img src="<?php echo INCLUDE_PATH;?>img/ajax-loader.gif" alt="#">
+</div><!--overlay-loading-->
 
 <header>
     <div class="center">
@@ -111,6 +114,7 @@ if ($url == 'contato') {
     ?>
     <script src="<?php echo INCLUDE_PATH; ?>js/slider.js"></script>
     <script src="<?php echo INCLUDE_PATH; ?>js/exemplo.js"></script>
+    <script src="<?php echo INCLUDE_PATH; ?>js/formularios.js"></script>
 
     <?php
 }

@@ -1,5 +1,6 @@
 <?php
 //uma função pode ser passada dentro de uma variavel
+//carrega a classe dinamicamente
 $autoload = function ($class){
     if ($class == 'Email'){
         //faz uma verificação e inclui apenas uma vez
@@ -14,6 +15,6 @@ spl_autoload_register($autoload);
 
 
 //Definindo diretorio raiz
-    define('INCLUDE_PATH','http://localhost/GitHub/studies/cursos-complementar/danki-code/desenvolvimento-web/projetos/projeto_01/')
+    define('INCLUDE_PATH','http://localhost/studies/cursos-complementar/danki-code/desenvolvimento-web/projetos/projeto_01/')
 
 ?>
