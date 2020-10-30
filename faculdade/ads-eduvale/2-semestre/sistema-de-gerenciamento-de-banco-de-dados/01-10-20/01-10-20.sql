@@ -29,3 +29,5 @@ insert cidade values(null, 'buenos aires',2);
 update cidade set cidadenome='aguas de santa barbara' where cidadeid= 3;
 
 select paisnome, cidadenome from pais left outer join cidade on pais.paisid = cidade.paisid;
+
+

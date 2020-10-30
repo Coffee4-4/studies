@@ -19,7 +19,7 @@ foreign key(categoria) references categorias(categoria_id)
 insert categorias(nome_categoria) values ('periferico'),('hardware'),('rede'),('impressoras');
 
 insert produtos(nome_produto,categoria,valor) values ('msi z370',2,430.00),
-('memora hp 8gb',2,326.11),
+('memoria hp 8gb',2,326.11),
 ('teclado logitech',1,60.00),
 ('cabo de rede cat e6',3,340.00),
 ('mouse dell',1,130.00),
