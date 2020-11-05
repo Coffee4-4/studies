@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+    <generated />
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="fda8c446-e778-4e8e-8799-89d210b98954" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/05-11-2020/teste.cpp" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
+  <component name="ProjectId" id="1jsuVIFPRTSTJcOcvINXzt0wNEf" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="cf.first.check.clang-format" value="false" />
+    <property name="last_opened_file_path" value="$USER_HOME$/CLionProjects/untitled/main.cpp" />
+    <property name="nodejs.protractor.protractor_package" value="" />
+    <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" RUN_PATH="$USER_HOME$/CLionProjects/untitled/cmake-build-debug/CMakeFiles/3.17.3/CompilerIdCXX/a.out" EXPLICIT_BUILD_TARGET_NAME="all">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fda8c446-e778-4e8e-8799-89d210b98954" name="Default Changelist" comment="" />
+      <created>1604605142982</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1604605142982</updated>
+      <workItem from="1604605144212" duration="669000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="418" y="516" key="#Notifications" timestamp="1604605254081">
+      <screen x="0" y="312" width="1366" height="768" />
+    </state>
+    <state x="418" y="516" key="#Notifications/0.312.1366.768/1366.0.1920.1080@0.312.1366.768" timestamp="1604605254081" />
+    <state x="147" y="349" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604605801012">
+      <screen x="0" y="312" width="1366" height="768" />
+    </state>
+    <state x="147" y="349" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.312.1366.768/1366.0.1920.1080@0.312.1366.768" timestamp="1604605801012" />
+    <state x="409" y="493" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1604605197537">
+      <screen x="0" y="312" width="1366" height="768" />
+    </state>
+    <state x="409" y="493" key="#com.intellij.fileTypes.FileTypeChooser/0.312.1366.768/1366.0.1920.1080@0.312.1366.768" timestamp="1604605197537" />
+    <state x="471" y="449" key="FileChooserDialogImpl" timestamp="1604605768436">
+      <screen x="0" y="312" width="1366" height="768" />
+    </state>
+    <state x="471" y="449" key="FileChooserDialogImpl/0.312.1366.768/1366.0.1920.1080@0.312.1366.768" timestamp="1604605768436" />
+    <state x="347" y="322" key="run.anything.popup" timestamp="1604605809357">
+      <screen x="0" y="312" width="1366" height="768" />
+    </state>
+    <state x="347" y="322" key="run.anything.popup/0.312.1366.768/1366.0.1920.1080@0.312.1366.768" timestamp="1604605809357" />
+  </component>
+</project>
