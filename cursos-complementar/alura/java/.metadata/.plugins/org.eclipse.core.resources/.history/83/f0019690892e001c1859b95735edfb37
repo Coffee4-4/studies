@@ -1,0 +1,16 @@
+package bytebank;
+
+public class TestaMetodo {
+
+	public static void main(String[] args) {
+		
+		Conta contaDoFulano = new Conta();
+
+//		acessa o metodo deposita
+		contaDoFulano.deposita(50);
+		
+		System.out.println(contaDoFulano.saldo);
+		
+	}
+
+}

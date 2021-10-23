@@ -1,0 +1,5 @@
+INDEX VERSION 1.131+C:\Users\Melic\Desktop\studies\cursos-complementar\alura\java\.metadata\.plugins\org.eclipse.jdt.core
+2702459774.index
+2010425258.index
+1865797976.index
+523792238.index
