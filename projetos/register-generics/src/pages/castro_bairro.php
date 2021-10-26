@@ -14,33 +14,8 @@
     <link rel="stylesheet" href="../css/global.css">
 </head>
 <body>
-
-<header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light  ">
-        <div class="container-fluid">
-            <a class="navbar-brand p-3" href="#">Register & Generics</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav p-3">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Início</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contato</a>
-                    </li>
-                </ul>
-                <button class="btn btn-outline-success m-3" data-bs-toggle="modal" data-bs-target="#modal-login"
-                        type="submit">Logout
-                </button>
-            </div>
-        </div>
-    </nav>
-
-
-</header>
+<?php require_once '../areaRestrita/crud.php'; ?>
+<header><?php include ("../html/navbar.php")?></header>
 
 <main>
     <section id="titulo" class="row container-fluid ">
@@ -48,57 +23,74 @@
         <h1 class="text-center fonte-titulo cor-especial pt-5">Seja Bem-vindo!</h1>
         <p class="text-center text-secondary pb-5">Aqui estão os modulos disponiveis: </p>
     </section>
-    <section class="container-fluid bg-light" id="receitas">
-        <div class="row justify-content-center">
-            <article class="card borda-cor-especial card-largura p-1 m-4 col-12 col-md-4 ">
-                <img src="../img/people-icon.png" class="card-img-top card-imagem"
-                     alt="icone do cadastro de pessoas">
-                <div class="card-body">
-                    <h5 class="card-title">Módulo: Pessoas</h5>
-                    <p class="card-text">Faça o cadastro de novos usuários e pessoas, liste, altere e delete com
-                        moderação ;)</p>
-                    <a href="#" class="btn btn-primary d-grid">Acessar</a>
+
+    <nav>
+        <section class="nav nav-tabs" id="nav-tab" role="tablist">
+            <button class="nav-link active" id="nav-cadastrar-tab" data-bs-toggle="tab" data-bs-target="#nav-cadastrar" type="button" role="tab" aria-controls="nav-cadastrar" aria-selected="true">Cadastrar</button>
+            <button class="nav-link" id="nav-listar-tab" data-bs-toggle="tab" data-bs-target="#nav-listar" type="button" role="tab" aria-controls="nav-listar" aria-selected="false">listar</button>
+            <button class="nav-link" id="nav-alterar-tab" data-bs-toggle="tab" data-bs-target="#nav-alterar" type="button" role="tab" aria-controls="nav-alterar" aria-selected="false">Alterar</button>
+        </section>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-cadastrar" role="tabpanel" aria-labelledby="nav-cadastrar-tab">
+
+            <form class="row col-md-12 p-3 form-bairro" action="gravar_bairro.php" method="POST" >
+                <div class="col-md-12">
+                    <label for="nome" class="form-label">Bairro:</label>
+                    <input type="text" name="nome" class="form-control">
                 </div>
-            </article>
-            <article class="card borda-cor-especial card-largura p-1 m-4 col-12 col-md-4">
-                <img src="../img/city-icon.png" class="card-img-top card-imagem"
-                     alt="icone do cadastro de cidades">
-                <div class="card-body">
-                    <h5 class="card-title">Módulo: Cidades</h5>
-                    <p class="card-text">Faça o cadastro de novas Cidades, liste, altere e delete com moderação ;)</p>
-                    <a href="#" class="btn btn-primary d-grid">Acessar</a>
+                <div class="col-md-4">
+                    <label for="nome" class="form-label">Cidade</label>
+                    <select id="cidade" class="form-select" name="cidade">
+                        <option selected>Selecione ...</option>
+                        <?php
+                        $lista_cidades = LerRegistro('cidades');
+                        foreach ($lista_cidades as $chave => $valor) { ?>
+                            <option value="<?= $valor['idCidade']?>"> <?= $valor['NomeCidade']?></option>
+                            <?php
+                        }
+                        ?>
+                    </select>
+                <div class="col-12 m-3 d-grid gap-2 d-md-flex justify-content-md-center">
+                    <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Limpar</button>
+                    <button type="submit" class="btn btn-primary btn-bairro">Cadastrar</button>
                 </div>
-            </article>
-            <article class="card borda-cor-especial card-largura p-1 m-4 col-12 col-md-4">
-                <img src="../img/bairro-icon.png" class="card-img-top card-imagem"
-                     alt="icone do cadastro de bairros">
-                <div class="card-body">
-                    <h5 class="card-title">Módulo: Bairros</h5>
-                    <p class="card-text">Faça o cadastro de novos Bairros, liste, altere e delete com moderação ;)</p>
-                    <a href="#" class="btn btn-primary d-grid">Acessar</a>
-                </div>
-            </article>
+            </form>
+
         </div>
-    </section>
+        <div class="tab-pane fade" id="nav-listar" role="tabpanel" aria-labelledby="nav-listar-tab">
+
+            <section class="navbar navbar-expand-lg navbar-light bg-light justify-content-center">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">Bucar Cidade:</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                        <form class="d-flex col-6 justify-content-center">
+                            <input class="form-control me-2" type="search" placeholder="Digite o Nome da Cidade" aria-label="Search">
+                            <button class="btn btn-outline-success btn-listar_cidade" type="submit">Buscar</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+
+            <div id="lista_cidade"</div>
+
+
+    </div>
+    <div class="tab-pane fade" id="nav-alterar" role="tabpanel" aria-labelledby="nav-alterar-tab">3</div>
+    </div>
+
+
 
 
 </main>
 
-<footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-    <div class="col-md-4 d-flex align-items-center">
-        <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-            <i class="fas fa-coffee" width="30" height="24"></i>
-        </a>
-        <span class="text-muted">Feito com <i class="fas fa-coffee"></i> & <i class="fas fa-heart"></i></span>
-    </div>
+<footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top"><?php include ("../html/footer.php")?></footer>
 
-    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-        <li><a href="#"><i class="ms-3 text-muted  fab fa-github" width="24" height="24"></a></i></li>
-        <li><a href="#"><i class="ms-3 text-muted  fab fa-facebook" width="24" height="24"></i></a></li>
-        <li><a href="#"><i class="ms-3 text-muted bi fab fa-instagram" width="24" height="24"></i></li>
-        </a>
-    </ul>
-</footer>
 
 
 

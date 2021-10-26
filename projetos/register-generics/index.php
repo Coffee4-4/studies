@@ -95,20 +95,8 @@
 
 </main>
 
-<footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top fixed-bottom">
-    <div class="col-md-4 d-flex align-items-center">
-        <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-            <i class="fas fa-coffee"  width="30" height="24"></i>
-        </a>
-        <span class="text-muted">Feito com <i class="fas fa-coffee"></i> & <i class="fas fa-heart"></i></span>
-    </div>
+<footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top"><?php include ("../html/footer.php")?></footer>
 
-    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-        <li><a href="#"><i class="ms-3 text-muted  fab fa-github" width="24" height="24"></a></i></li>
-        <li><a href="#"><i class="ms-3 text-muted  fab fa-facebook" width="24" height="24"></i></a></li>
-        <li><a href="#"><i class="ms-3 text-muted bi fab fa-instagram" width="24" height="24"></i></li></a>
-    </ul>
-</footer>
 
 <!-- Modal de LOGIN-->
 <div class="modal fade" id="modal-login" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

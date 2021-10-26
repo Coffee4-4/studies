@@ -9,6 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/fontawesome.css">
+    <link rel="stylesheet" href="../css/all.css">
 
 
     <link rel="stylesheet" href="../css/global.css">
@@ -17,32 +18,7 @@
 
 <?php require_once '../areaRestrita/crud.php'; ?>
 
-<header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light  ">
-        <div class="container-fluid">
-            <a class="navbar-brand p-3" href="#">Register & Generics</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav p-3">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Início</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contato</a>
-                    </li>
-                </ul>
-                <button class="btn btn-outline-success m-3" data-bs-toggle="modal" data-bs-target="#modal-login"
-                        type="submit">Logout
-                </button>
-            </div>
-        </div>
-    </nav>
-
-
-</header>
+<header><?php include ("../html/navbar.php")?></header>
 
 <main>
     <section id="titulo" class="row container-fluid ">
@@ -123,15 +99,15 @@
 
                         <form class="d-flex col-6 justify-content-center">
                             <input class="form-control me-2" type="search" placeholder="Digite o Nome da Cidade" aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit">Buscar</button>
+                            <button class="btn btn-outline-success btn-listar_cidade" type="submit">Buscar</button>
                         </form>
                     </div>
                 </div>
             </section>
 
-            <table class="table table-hover">
+
                 <div id="lista_cidade"</div>
-            </table>
+
 
         </div>
         <div class="tab-pane fade" id="nav-alterar" role="tabpanel" aria-labelledby="nav-alterar-tab">3</div>
@@ -141,22 +117,8 @@
 
 
 </main>
+<footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top"><?php include ("../html/footer.php")?></footer>
 
-<footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-    <div class="col-md-4 d-flex align-items-center">
-        <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-            <i class="fas fa-coffee" width="30" height="24"></i>
-        </a>
-        <span class="text-muted">Feito com <i class="fas fa-coffee"></i> & <i class="fas fa-heart"></i></span>
-    </div>
-
-    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-        <li><a href="#"><i class="ms-3 text-muted  fab fa-github" width="24" height="24"></a></i></li>
-        <li><a href="#"><i class="ms-3 text-muted  fab fa-facebook" width="24" height="24"></i></a></li>
-        <li><a href="#"><i class="ms-3 text-muted bi fab fa-instagram" width="24" height="24"></i></li>
-        </a>
-    </ul>
-</footer>
 
 
 
@@ -165,6 +127,8 @@
         crossorigin="anonymous"></script>
 <script src="../js/jquery-3.6.0.js"></script>
 <script src="../js/principal.js"></script>
+<script src="../js/all.js"></script>
+<script src="../js/main.js"></script>
 
 
 </body>
