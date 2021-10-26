@@ -38,8 +38,9 @@
         <div class="tab-pane fade show active" id="nav-cadastrar" role="tabpanel" aria-labelledby="nav-cadastrar-tab">
 
             <form class="row col-md-12 p-3 form_cidade" action="gravar_cidade.php" method="POST" >
+                <div class="resposta"></div>
                 <div class="col-md-12">
-                    <label for="nome" class="form-label">Cidade</label>
+                    <label for="nome" class="form-label ">Cidade</label>
                     <input type="text" name="nome" class="form-control">
                 </div>
                 <div class="col-md-4">
@@ -85,6 +86,8 @@
                     <button type="submit" class="btn btn-primary btn-cidade">Cadastrar</button>
                 </div>
             </form>
+
+            <div class="modal"></div>
 
         </div>
         <div class="tab-pane fade" id="nav-listar" role="tabpanel" aria-labelledby="nav-listar-tab">

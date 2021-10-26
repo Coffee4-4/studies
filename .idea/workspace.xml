@@ -43,7 +43,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/projetos/register-generics/src/js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/projetos/register-generics/src/css" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -75,6 +75,7 @@
       <option name="presentableId" value="Default" />
       <updated>1635095615547</updated>
       <workItem from="1635095621049" duration="29800000" />
+      <workItem from="1635286846112" duration="3279000" />
     </task>
     <servers />
   </component>
@@ -91,5 +92,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

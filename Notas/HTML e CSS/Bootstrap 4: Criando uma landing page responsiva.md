@@ -181,12 +181,3 @@ Links da documentação do Bootstrap que utilizamos nessa aula:
 
 
 
-
-
-
-
-
-
-Modulo: Pessoas
-
-Faça o cadastro de novos usuários e pessoas, liste, altere e delete com moderação 

@@ -51,6 +51,7 @@
                         }
                         ?>
                     </select>
+                </div>
                 <div class="col-12 m-3 d-grid gap-2 d-md-flex justify-content-md-center">
                     <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Limpar</button>
                     <button type="submit" class="btn btn-primary btn-bairro">Cadastrar</button>
