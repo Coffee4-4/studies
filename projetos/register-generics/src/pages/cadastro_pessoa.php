@@ -10,8 +10,7 @@
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/fontawesome.css">
     <link rel="stylesheet" href="../css/all.css">
-
-
+    <link rel="stylesheet" href="../css/estilo.css">
     <link rel="stylesheet" href="../css/global.css">
 </head>
 <body>
@@ -44,6 +43,12 @@
         <div class="tab-pane fade show active" id="nav-cadastrar" role="tabpanel" aria-labelledby="nav-cadastrar-tab">
 
             <form class="row col-md-12 p-3 form_pessoa" nome="form_pessoa" action="gravar_pessoa.php" method="POST">
+                <div class="resposta"></div>
+
+                <div class="carregando">
+                    <div class="progress">0%</div>
+                </div>
+
                 <div class="col-md-6">
                     <label for="nome" class="form-label">Nome:</label>
                     <input type="text" name="nome" class="form-control" required>
@@ -54,7 +59,7 @@
                 </div>
                 <div class="col-md-3">
                     <label for="nascimento" class="form-label">Nascimento:</label>
-                    <input type="date" name="nascimento" class="form-control" required>
+                    <input type="date" name="nascimento" class="form-control" >
                 </div>
 
 
@@ -102,6 +107,8 @@
                     <button type="submit" class="btn btn-primary btn-pessoa">Cadastrar</button>
                 </div>
             </form>
+
+            <div class="modal"></div>
 
         </div>
         <div class="tab-pane fade" id="nav-listar" role="tabpanel" aria-labelledby="nav-listar-tab">

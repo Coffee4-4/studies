@@ -63,7 +63,7 @@ switch ($_POST['acao']) {
         $situacao = $_POST['ativo'];
         $bairro = $_POST['bairro'];
 
-        $pasta = 'fotos/';
+        $pasta = '../img/fotos/';
         if (!file_exists($pasta)) {
             mkdir($pasta, 0755);
         }

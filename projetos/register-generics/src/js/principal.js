@@ -1,16 +1,11 @@
 $(document).ready(function() {
     $body = $('body');
 
-    // $(document).on({
-    //     ajaxStart: function() { $body.addClass("loading"); },
-    //     ajaxError: function() { errosend(); },
-    //     ajaxStop: function() { $body.removeClass("loading"); }
-    // })
 
     var msg = $('.resposta');
 
     function carregando(mensagem = "Aguarde, Enviando Requisição") {
-        msg.empty().html('<p class="load"><img src="img/load.gif" ' +
+        msg.empty().html('<p class="load"><img src="../img/load.gif" ' +
             'alt="Carregando...">' + mensagem + '</p>').fadeIn("fast");
     }
 

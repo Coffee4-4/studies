@@ -9,8 +9,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/fontawesome.css">
-
-
+    <link rel="stylesheet" href="../css/all.css">
+    <link rel="stylesheet" href="../css/estilo.css">
     <link rel="stylesheet" href="../css/global.css">
 </head>
 <body>
@@ -34,15 +34,15 @@
     <div class="tab-content" id="nav-tabContent">
         <div class="tab-pane fade show active" id="nav-cadastrar" role="tabpanel" aria-labelledby="nav-cadastrar-tab">
 
-            <form class="row col-md-12 p-3 form-bairro" action="gravar_bairro.php" method="POST" >
+            <form class="row col-md-12 p-3 form_bairro" action="gravar_bairro.php" method="POST" >
+                <div class="resposta"></div>
                 <div class="col-md-12">
                     <label for="nome" class="form-label">Bairro:</label>
                     <input type="text" name="nome" class="form-control">
                 </div>
                 <div class="col-md-4">
-                    <label for="nome" class="form-label">Cidade</label>
+                    <label for="cidade" class="form-label">Cidade</label>
                     <select id="cidade" class="form-select" name="cidade">
-                        <option selected>Selecione ...</option>
                         <?php
                         $lista_cidades = LerRegistro('cidades');
                         foreach ($lista_cidades as $chave => $valor) { ?>
@@ -57,6 +57,7 @@
                     <button type="submit" class="btn btn-primary btn-bairro">Cadastrar</button>
                 </div>
             </form>
+            <div class="modal"></div>
 
         </div>
         <div class="tab-pane fade" id="nav-listar" role="tabpanel" aria-labelledby="nav-listar-tab">
@@ -98,7 +99,10 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
-<script src="src/js/jquery-3.6.0.js"></script>
+<script src="../js/jquery-3.6.0.js"></script>
+<script src="../js/principal.js"></script>
+<script src="../js/all.js"></script>
+<script src="../js/main.js"></script>
 
 
 </body>

@@ -43,7 +43,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/projetos/register-generics/src/css" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/projetos/register-generics/src/img" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -53,11 +53,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/projetos/register-generics/src/js" />
+      <recent name="$PROJECT_DIR$/projetos/register-generics/src/img" />
       <recent name="$PROJECT_DIR$/projetos/register-generics/src/css" />
+      <recent name="$PROJECT_DIR$/projetos/register-generics/src/js" />
       <recent name="$PROJECT_DIR$/projetos/register-generics/src/pages" />
       <recent name="$PROJECT_DIR$/projetos/register-generics/src" />
-      <recent name="$PROJECT_DIR$/projetos/register-generics/src/img" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/projetos/register-generics/src/img" />
@@ -75,7 +75,7 @@
       <option name="presentableId" value="Default" />
       <updated>1635095615547</updated>
       <workItem from="1635095621049" duration="29800000" />
-      <workItem from="1635286846112" duration="3279000" />
+      <workItem from="1635286846112" duration="5563000" />
     </task>
     <servers />
   </component>

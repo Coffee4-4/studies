@@ -10,8 +10,7 @@
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/fontawesome.css">
     <link rel="stylesheet" href="../css/all.css">
-
-
+    <link rel="stylesheet" href="../css/estilo.css">
     <link rel="stylesheet" href="../css/global.css">
 </head>
 <body>
@@ -46,7 +45,6 @@
                 <div class="col-md-4">
                     <label for="nome" class="form-label">Estado</label>
                     <select id="uf" class="form-select" name="uf">
-                        <option selected>Selecione ...</option>
                         <option value="AC">AC</option>
                         <option value="AL">AL</option>
                         <option value="AP">AP</option>
